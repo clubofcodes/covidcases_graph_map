@@ -1,23 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import CasesGraph from './screens/Line Graph/CasesGraph';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="text-center">
+      <h2 className='mb-4'>Dashboard</h2>
+      <p className='text-danger fs-5'>Line graph showing the covid cases</p>
+      <CasesGraph />
     </div>
   );
 }

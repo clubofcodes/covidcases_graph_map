@@ -1,38 +1,31 @@
-.App {
-  text-align: center;
+* {
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html, body, #root {
+    height: 100% !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    margin: 0 !important;
+    background-color: #282c34 !important;
+    color: white !important;
+    padding: 16px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+tspan{
+    font-size: smaller !important;
+    color: white !important;
 }
 
-.App-link {
-  color: #61dafb;
+text{
+    fill: white !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+line{
+    stroke: white !important;
+}
+
+.recharts-default-legend{
+    margin-top: 40px !important;
 }
