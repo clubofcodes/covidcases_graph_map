@@ -31,3 +31,9 @@ line {
     font-size: larger !important;
     margin-top: 40px !important;
 }
+
+.leaflet-container{
+    border-radius: 6px 40px;
+    width: 60% !important;
+    height: 60vh !important;
+}
