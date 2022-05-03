@@ -13,19 +13,21 @@ body {
     padding: 16px;
 }
 
-tspan{
-    font-size: smaller !important;
+tspan {
+    font-size: x-small !important;
     color: white !important;
+    margin-top: 20px !important;
 }
 
-text{
+text {
     fill: white !important;
 }
 
-line{
+line {
     stroke: white !important;
 }
 
-.recharts-default-legend{
+.recharts-default-legend {
+    font-size: larger !important;
     margin-top: 40px !important;
 }
