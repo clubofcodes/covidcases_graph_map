@@ -1,18 +1,18 @@
 import './App.css';
-import CasesMap from './screens/Leaflet Map/CasesMap';
-import CasesGraph from './screens/Line Graph/CasesGraph';
+import CasesGraph from './screens/Line Graph/CasesGraph'; // Imported Graph component.
+import CasesMap from './screens/Leaflet Map/CasesMap'; // Imported Map Component.
 
 function App() {
   return (
     <div className="text-center">
-      <h2 className='mb-4'>Covid Cases</h2>
+      <h1 className='mb-4'>Covid Cases</h1>
 
-      <p className='text-danger fs-5'>Line graph showing the covid cases</p>
+      <p className='text-danger fs-4 fw-bold'>Below graph shows fluctuations of covid cases</p>
       <CasesGraph />
 
       <hr />
 
-      <p className='text-danger fs-5'>Map of covid cases</p>
+      <p className='text-danger fs-4 fw-bold'>Country wise map of covid cases</p>
       <div className='text-center pb-5 d-flex justify-content-center'>
         <CasesMap />
       </div>
