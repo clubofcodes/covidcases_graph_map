@@ -9,27 +9,22 @@ import {
     ResponsiveContainer,
     Legend
 } from 'recharts'; // Charting library used to show covid cases in line graph.
+import { covidCasesApi, limitCountry } from '../../config'; // Imported default environment variables.
+import { useApiFetch } from '../../Hooks/useApiFetch'; // Imported custom hook to fetch API data.
 
 const CasesGraph = () => {
-
-    // New state variable to store data or error.
-    const [casesData, setCasesData] = useState([]);
-    const [apiError, setApiError] = useState(null);
     // Filter state to change the number country to display in line chart.
-    const [filterCountry, setFilterCountry] = useState(25);
+    const [filterCountry, setFilterCountry] = useState(limitCountry);
 
-    // Arrow function to get data from api and store in state variable.
-    const fetchCasesData = async () => fetch("https://disease.sh/v3/covid-19/countries")
-        .then(response => response.json())
-        .then((resData) => {
-            setCasesData(resData);
-            setApiError(null);
-        }, (error) => setApiError(error.message));
+    //using custom hook and it's variables for fetching data from api call.
+    const { casesData, apiError, fetchCasesData } = useApiFetch(covidCasesApi);
 
     // To prevent side effects
     useEffect(() => {
         // Function call on first render.
         fetchCasesData();
+
+        // eslint-disable-next-line
     }, [])
 
     return (
@@ -38,7 +33,7 @@ const CasesGraph = () => {
                 <div className='d-flex flex-column align-items-center mb-5'>
                     <div className='country_number'>
                         <p>Type any number of country to display in graph (Only number is valid)</p>
-                        <input type="number" className='mb-4' name="country_number" placeholder='Enter number . . . .(Default: 25)' onChange={(e) => (e.target.value === '') ? setFilterCountry(25) : setFilterCountry(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && e.preventDefault()} />
+                        <input type="number" className='mb-4' name="country_number" placeholder='Enter number . . . .(Default: 25)' onChange={(e) => (e.target.value === '') ? setFilterCountry(limitCountry) : setFilterCountry(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && e.preventDefault()} />
                     </div>
                     <ResponsiveContainer width="65%" aspect={2.5}>
                         <LineChart data={casesData.slice(0, filterCountry)} margin={{ top: 5, right: 80, bottom: 5, left: 40 }} >
